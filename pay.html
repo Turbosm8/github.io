@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOLX Pay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .ios-card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 顶部tab切换 -->
+    <div class="bg-white py-4 px-6 shadow-sm">
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center">
+                <span class="text-xl font-bold text-blue-500 mr-4">MOLX</span>
+            </div>
+            <div class="flex-1 flex justify-center space-x-4">
+                <button id="payTab" class="px-4 py-2 font-medium text-blue-500 border-b-2 border-blue-500">Pay</button>
+                <button id="sofiTab" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-700">Sofi</button>
+                <button id="walletTab" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-700">Wallet</button>
+            </div>
+            <div class="flex space-x-4">
+                <button class="text-gray-600">
+                    <i class="fas fa-calendar-check"></i>
+                </button>
+                <button class="text-gray-600">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6 overflow-y-auto" style="height: calc(100vh - 120px);">
+        <!-- 合并后的账户信息和功能入口 -->
+        <div class="ios-card bg-white p-6 mb-6">
+            <!-- 账户信息 -->
+            <div class="w-full mb-6">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm text-gray-500">总资产 
+                            <select class="text-xs border border-gray-300 rounded px-1 py-0.5 ml-1">
+                                <option>USD</option>
+                                <option>HKD</option>
+                            </select>
+                        </p>
+                        <button class="text-blue-500">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-600 mt-2">1,234.56</p>
+                </div>
+            </div>
+            
+            <!-- 金刚区功能入口 -->
+        <div class="grid grid-cols-3 gap-4 text-center mb-6">
+        <button class="flex flex-col items-center">
+            <div class="bg-blue-100 w-12 h-12 rounded-full mb-2 flex items-center justify-center">
+                <i class="fas fa-coins text-blue-500 text-lg"></i>
+            </div>
+            <span class="text-xs">充值</span>
+        </button>
+        <button class="flex flex-col items-center">
+            <div class="bg-green-100 w-12 h-12 rounded-full mb-2 flex items-center justify-center">
+                <i class="fas fa-wallet text-green-500 text-lg"></i>
+            </div>
+            <span class="text-xs">提币</span>
+        </button>
+        <button class="flex flex-col items-center">
+            <div class="bg-purple-100 w-12 h-12 rounded-full mb-2 flex items-center justify-center">
+                <i class="fas fa-share-alt text-purple-500 text-lg"></i>
+            </div>
+            <span class="text-xs">分享</span>
+        </button>
+    </div>
+    
+    <!-- Banner广告位 -->
+    <div class="ios-card bg-gradient-to-r from-blue-500 to-blue-600 p-6 mb-6 text-white rounded-lg text-center" style="height: 150%;">
+        <h3 class="font-medium">充值10U立获5U返现和年化10%利息</h3>
+        <p class="text-xs opacity-90 mt-2">立即充值享受优惠 <i class="fas fa-arrow-right ml-1"></i></p>
+    </div>
+    
+    <!-- 账户变动通知 -->
+    <div class="ios-card bg-white p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-medium text-gray-700">账户动态</h2>
+                <a href="notifications.html" class="text-blue-500 text-sm">更多 <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="space-y-3">
+                <div class="flex items-start">
+                    <div class="bg-green-100 p-2 rounded-full mr-3 w-8 h-8 flex items-center justify-center">
+                        <i class="fas fa-coins text-green-500 text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">充值成功</p>
+                        <p class="text-xs text-gray-500">+10 USDT 充值到账</p>
+                        <p class="text-xs text-gray-400">5分钟前</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-purple-100 p-2 rounded-full mr-3 w-8 h-8 flex items-center justify-center">
+                        <i class="fas fa-percentage text-purple-500 text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">利息到账</p>
+                        <p class="text-xs text-gray-500">+1.0 USDT 年化利息收益</p>
+                        <p class="text-xs text-gray-400">刚刚</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-2 rounded-full mr-3 w-8 h-8 flex items-center justify-center">
+                        <i class="fas fa-arrow-down text-blue-500 text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">收到转账</p>
+                        <p class="text-xs text-gray-500">+100 USDT 来自0x9a8b7c6d5e4f3g2h1i0j</p>
+                        <p class="text-xs text-gray-400">10分钟前</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-red-100 p-2 rounded-full mr-3 w-8 h-8 flex items-center justify-center">
+                        <i class="fas fa-arrow-up text-red-500 text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">转账支出</p>
+                        <p class="text-xs text-gray-500">-50 USDT 至0x1a2b3c4d5e6f7g8h9i0j</p>
+                        <p class="text-xs text-gray-400">2小时前</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 合作伙伴 -->
+        <div class="p-6 mb-6">
+            <h2 class="text-lg font-medium text-gray-700 mb-4 text-center">合作伙伴</h2>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="p-2">
+                    <div class="p-3 rounded-lg mb-1">
+                        <i class="fas fa-shopping-bag text-gray-500"></i>
+                    </div>
+                    <p class="text-xs">MOLX商城</p>
+                </div>
+                <div class="p-2">
+                    <div class="p-3 rounded-lg mb-1">
+                        <i class="fas fa-coffee text-gray-500"></i>
+                    </div>
+                    <p class="text-xs">MOLX咖啡</p>
+                </div>
+                <div class="p-2">
+                    <div class="p-3 rounded-lg mb-1">
+                        <i class="fas fa-plane text-gray-500"></i>
+                    </div>
+                    <p class="text-xs">MOLX旅行</p>
+                </div>
+            </div>
+        </div>
+        
+        
+    </main>
+    
+    <!-- 底部导航 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white py-2 px-6">
+        <div class="flex justify-around">
+            <a href="pay.html" class="text-blue-500 text-center nav-item" data-page="pay">
+                <i class="fas fa-credit-card block text-lg"></i>
+                <span class="text-xs mt-1">Pay</span>
+            </a>
+            <a href="profile.html" class="text-gray-500 text-center nav-item" data-page="profile">
+                <i class="fas fa-user block text-lg"></i>
+                <span class="text-xs mt-1">我的</span>
+            </a>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 导航栏高亮处理
+        const navItems = document.querySelectorAll('.nav-item');
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
+        
+        navItems.forEach(item => {
+            if(item.dataset.page === currentPage) {
+                item.classList.remove('text-gray-500');
+                item.classList.add('text-blue-500');
+            }
+            
+            item.addEventListener('click', function(e) {
+                navItems.forEach(nav => {
+                    nav.classList.remove('text-blue-500');
+                    nav.classList.add('text-gray-500');
+                });
+                this.classList.remove('text-gray-500');
+                this.classList.add('text-blue-500');
+            });
+        });
+
+        // Tab切换逻辑
+        const payTab = document.getElementById('payTab');
+        const sofiTab = document.getElementById('sofiTab');
+        
+        payTab.addEventListener('click', function() {
+            payTab.classList.add('text-blue-500', 'border-blue-500');
+            payTab.classList.remove('text-gray-500');
+            sofiTab.classList.remove('text-blue-500', 'border-blue-500');
+            sofiTab.classList.add('text-gray-500', 'border-transparent');
+            
+            // 更新底部导航为Pay模式
+            const bottomNav = document.querySelector('.fixed.bottom-0');
+            bottomNav.innerHTML = `
+                <div class="flex justify-around">
+                    <a href="pay.html" class="text-blue-500 text-center nav-item" data-page="pay">
+                        <i class="fas fa-credit-card block text-lg"></i>
+                        <span class="text-xs mt-1">Pay</span>
+                    </a>
+                    <a href="profile.html" class="text-gray-500 text-center nav-item" data-page="profile">
+                        <i class="fas fa-user block text-lg"></i>
+                        <span class="text-xs mt-1">我的</span>
+                    </a>
+                </div>
+            `;
+        });
+        
+        sofiTab.addEventListener('click', function() {
+            sofiTab.classList.add('text-blue-500', 'border-blue-500');
+            sofiTab.classList.remove('text-gray-500', 'border-transparent');
+            payTab.classList.remove('text-blue-500', 'border-blue-500');
+            payTab.classList.add('text-gray-500', 'border-transparent');
+            walletTab.classList.remove('text-blue-500', 'border-blue-500');
+            walletTab.classList.add('text-gray-500', 'border-transparent');
+            
+            // 更新底部导航为Sofi模式
+            const bottomNav = document.querySelector('.fixed.bottom-0');
+            bottomNav.innerHTML = `
+                <div class="flex justify-around">
+                    <a href="sofi.html" class="text-blue-500 text-center nav-item" data-page="sofi">
+                        <i class="fas fa-coins block text-lg"></i>
+                        <span class="text-xs mt-1">Sofi</span>
+                    </a>
+                    <a href="shop.html" class="text-gray-500 text-center nav-item" data-page="shop">
+                        <i class="fas fa-store block text-lg"></i>
+                        <span class="text-xs mt-1">商城</span>
+                    </a>
+                    <a href="profile_sofi.html" class="text-gray-500 text-center nav-item" data-page="profile_sofi">
+                        <i class="fas fa-user block text-lg"></i>
+                        <span class="text-xs mt-1">我的</span>
+                    </a>
+                </div>
+            `;
+        });
+        
+        // 添加Wallet Tab点击事件
+        walletTab.addEventListener('click', function() {
+            walletTab.classList.add('text-blue-500', 'border-blue-500');
+            walletTab.classList.remove('text-gray-500', 'border-transparent');
+            payTab.classList.remove('text-blue-500', 'border-blue-500');
+            payTab.classList.add('text-gray-500', 'border-transparent');
+            sofiTab.classList.remove('text-blue-500', 'border-blue-500');
+            sofiTab.classList.add('text-gray-500', 'border-transparent');
+            
+            // 更新底部导航为Wallet模式
+            const bottomNav = document.querySelector('.fixed.bottom-0');
+            bottomNav.innerHTML = `
+                <div class="flex justify-around">
+                    <a href="index.html" class="text-blue-500 text-center nav-item" data-page="wallet">
+                        <i class="fas fa-wallet block text-lg"></i>
+                        <span class="text-xs mt-1">Wallet</span>
+                    </a>
+                    <a href="profile.html" class="text-gray-500 text-center nav-item" data-page="profile">
+                        <i class="fas fa-user block text-lg"></i>
+                        <span class="text-xs mt-1">我的</span>
+                    </a>
+                </div>
+            `;
+        });
+    });
+</script>
+</body>
+</html>
